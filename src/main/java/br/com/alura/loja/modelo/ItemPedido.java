@@ -9,7 +9,7 @@ public class ItemPedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private BigDecimal precoUnitario;
+    private BigDecimal precoUnitario = BigDecimal.ZERO;
     private int quantidade;
     @ManyToOne
     private Pedido pedido;
@@ -63,5 +63,9 @@ public class ItemPedido {
 
     public void setProduto(Produto produto) {
         this.produto = produto;
+    }
+
+    public BigDecimal getValor() {
+        return precoUnitario.multiply(new BigDecimal(quantidade));
     }
 }
