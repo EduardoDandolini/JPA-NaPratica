@@ -12,6 +12,7 @@ import br.com.alura.loja.vo.RelatorioVendasVo;
 
 import javax.persistence.EntityManager;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 public class CadastroDePedido extends Cadastro{
@@ -40,6 +41,8 @@ public class CadastroDePedido extends Cadastro{
 
         List<RelatorioVendasVo> relatorio = pedidoDao.relatorioVendas();
         relatorio.forEach(System.out::println);
+
+        produtoDao.buscarProdutoComCriteria(null, null, LocalDate.now());
 
     }
 }
